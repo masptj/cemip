@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { VideoTour } from "@/components/VideoTour";
+import cemipFachada from "@/assets/cemip-fachada.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -141,31 +142,51 @@ function Landing() {
 
       {/* Hero */}
       <section id="top" className="relative overflow-hidden pb-16 pt-32 sm:pt-40 lg:pb-24 lg:pt-44">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <Reveal>
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--sage)]/30 bg-[var(--sage-soft)]/50 px-3 py-1 text-xs font-medium tracking-wide text-[var(--sage-dark)] uppercase">
-              <span className="h-1.5 w-1.5 rounded-full bg-[var(--sage)]" />
-              50 anos de tradição no Pacaembu
-            </p>
-            <h1 className="font-serif text-4xl leading-[1.08] text-foreground sm:text-5xl lg:text-6xl">
-              Coworking para profissionais da saúde no Pacaembu
-            </h1>
-            <p className="mx-auto mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
-              Estrutura completa em clínica com 50 anos de tradição. Espaço
-              profissional pronto para atender, sem os custos de manter um
-              consultório próprio.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <CTAButton large>Agendar uma Visita</CTAButton>
-              <a
-                href="#servicos"
-                className="text-sm font-medium text-foreground underline-offset-4 hover:underline"
-              >
-                Conhecer o espaço →
-              </a>
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Column (Text Content) */}
+            <div className="lg:col-span-7 text-left">
+              <Reveal>
+                <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--sage)]/30 bg-[var(--sage-soft)]/50 px-3 py-1 text-xs font-medium tracking-wide text-[var(--sage-dark)] uppercase">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--sage)]" />
+                  50 anos de tradição no Pacaembu
+                </p>
+                <h1 className="font-serif text-4xl leading-[1.1] text-foreground sm:text-5xl lg:text-6xl">
+                  Coworking para profissionais da saúde no Pacaembu
+                </h1>
+                <p className="mt-6 text-base text-muted-foreground sm:text-lg max-w-xl">
+                  Estrutura completa em clínica com 50 anos de tradição. Espaço
+                  profissional pronto para atender, sem os custos de manter um
+                  consultório próprio.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <CTAButton large>Agendar uma Visita</CTAButton>
+                  <a
+                    href="#servicos"
+                    className="text-sm font-medium text-foreground underline-offset-4 hover:underline"
+                  >
+                    Conhecer o espaço →
+                  </a>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
 
+            {/* Right Column (Image) */}
+            <div className="lg:col-span-5 relative w-full">
+              <Reveal delay={200}>
+                <div className="relative overflow-hidden rounded-3xl border border-border shadow-[var(--shadow-elegant)] bg-muted aspect-4/3 lg:aspect-[5/6]">
+                  <img
+                    src={cemipFachada}
+                    alt="CEMIP - Clínica Pacaembu"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    loading="eager"
+                  />
+                  {/* Subtle premium gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 
