@@ -5,7 +5,6 @@ import {
   Users,
   Car,
   Check,
-  Phone,
   MapPin,
   MessageCircle,
 } from "lucide-react";
@@ -347,22 +346,6 @@ function Landing() {
           <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
             <Reveal>
               <ul className="space-y-6">
-                <li className="flex items-start gap-4">
-                  <span
-                    className="grid h-11 w-11 shrink-0 place-items-center rounded-full"
-                    style={{ background: "var(--sage-soft)" }}
-                  >
-                    <Phone className="h-5 w-5 text-[var(--sage-dark)]" strokeWidth={1.75} />
-                  </span>
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                      Telefone fixo
-                    </p>
-                    <a href="tel:+551138252126" className="mt-1 block text-lg text-foreground hover:text-[var(--sage-dark)]">
-                      (11) 3825-2126
-                    </a>
-                  </div>
-                </li>
                 <li className="flex items-start gap-4">
                   <span
                     className="grid h-11 w-11 shrink-0 place-items-center rounded-full"
