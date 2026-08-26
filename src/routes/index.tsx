@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
 });
 
 const WHATSAPP_URL =
-  "https://wa.me/5511999633509?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20visita%20ao%20coworking.";
+  "https://wa.me/5511917726297?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20visita%20ao%20coworking.";
 
 function WhatsAppIcon({ className = "" }: { className?: string }) {
   return (
@@ -135,7 +135,7 @@ function Landing() {
             className="hidden items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-2 text-sm text-foreground backdrop-blur transition-colors hover:border-[var(--sage)] sm:inline-flex"
           >
             <WhatsAppIcon className="h-4 w-4 text-[var(--whatsapp)]" />
-            (11) 99963-3509
+            (11) 91772-6297
           </a>
         </div>
       </header>
@@ -380,7 +380,7 @@ function Landing() {
                       rel="noopener noreferrer"
                       className="mt-1 block text-lg text-foreground hover:text-[var(--sage-dark)]"
                     >
-                      (11) 99963-3509
+                      (11) 91772-6297
                     </a>
                   </div>
                 </li>

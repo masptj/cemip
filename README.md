@@ -82,7 +82,7 @@ A página deve ter as seguintes seções estruturadas na ordem abaixo:
 
   - Telefone Fixo: (11) 3825-2126
 
-  - WhatsApp: (11) 99963-3509
+  - WhatsApp: (11) 91772-6297
 
   - Endereço: Av. Arnolfo Azevedo, 208 - Pacaembu - SP
 
