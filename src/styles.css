@@ -84,7 +84,10 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-serif);
     letter-spacing: -0.01em;
   }
@@ -93,7 +96,9 @@
 @utility reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+  transition:
+    opacity 0.9s ease-out,
+    transform 0.9s ease-out;
 }
 @utility reveal-in {
   opacity: 1;

@@ -32,12 +32,42 @@ const items: Item[] = [
     poster: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_principal.jpg",
     featured: true,
   },
-  { title: "Sala 1", subtitle: "Consultório privativo", video: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_1.mp4", poster: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_1.jpg" },
-  { title: "Sala 2", subtitle: "Consultório privativo", video: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_2.mp4", poster: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_2.jpg" },
-  { title: "Sala 3", subtitle: "Consultório privativo", video: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_3.mp4", poster: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_3.jpg" },
-  { title: "Sala 4", subtitle: "Consultório privativo", video: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_4.mp4", poster: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_4.jpg" },
-  { title: "Sala 5", subtitle: "Consultório privativo", video: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_5.mp4", poster: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_5.jpg" },
-  { title: "Sala 7", subtitle: "Consultório privativo", video: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_7.mp4", poster: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_7.jpg" },
+  {
+    title: "Sala 1",
+    subtitle: "Consultório privativo",
+    video: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_1.mp4",
+    poster: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_1.jpg",
+  },
+  {
+    title: "Sala 2",
+    subtitle: "Consultório privativo",
+    video: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_2.mp4",
+    poster: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_2.jpg",
+  },
+  {
+    title: "Sala 3",
+    subtitle: "Consultório privativo",
+    video: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_3.mp4",
+    poster: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_3.jpg",
+  },
+  {
+    title: "Sala 4",
+    subtitle: "Consultório privativo",
+    video: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_4.mp4",
+    poster: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_4.jpg",
+  },
+  {
+    title: "Sala 5",
+    subtitle: "Consultório privativo",
+    video: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_5.mp4",
+    poster: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_5.jpg",
+  },
+  {
+    title: "Sala 7",
+    subtitle: "Consultório privativo",
+    video: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_7.mp4",
+    poster: "https://ielqn9vwwubgwx6h.public.blob.vercel-storage.com/Sala_7.jpg",
+  },
 ];
 
 function Card({ item, onOpen }: { item: Item; onOpen: () => void }) {

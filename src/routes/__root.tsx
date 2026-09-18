@@ -138,7 +138,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   );
 }
 
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 

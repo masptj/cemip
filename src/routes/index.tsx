@@ -1,15 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  DoorOpen,
-  Clock,
-  Users,
-  Car,
-  Check,
-  MapPin,
-  MessageCircle,
-} from "lucide-react";
+import { DoorOpen, Clock, Users, Car, Check, MapPin, MessageCircle } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { VideoTour } from "@/components/VideoTour";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import cemipFachada from "@/assets/cemip-fachada.png";
 
 export const Route = createFileRoute("/")({
@@ -39,31 +32,21 @@ const WHATSAPP_URL =
 
 function WhatsAppIcon({ className = "" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885zM20.52 3.449C18.24 1.245 15.24.03 12.045.03 5.463.03.104 5.389.101 11.971c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.652a11.882 11.882 0 005.71 1.447h.005c6.581 0 11.94-5.358 11.943-11.94 0-3.192-1.253-6.19-3.473-8.406z" />
     </svg>
   );
 }
 
-function CTAButton({
-  children,
-  large = false,
-}: {
-  children: React.ReactNode;
-  large?: boolean;
-}) {
+function CTAButton({ children, large = false }: { children: React.ReactNode; large?: boolean }) {
   return (
     <a
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-2.5 rounded-full font-medium text-white shadow-[var(--shadow-elegant)] transition-all hover:scale-[1.02] hover:shadow-[0_24px_60px_-20px_oklch(0.42_0.045_150/0.4)] ${large ? "px-8 py-4 text-base" : "px-6 py-3 text-sm"
-        }`}
+      className={`inline-flex items-center justify-center gap-2.5 rounded-full font-medium text-white shadow-[var(--shadow-elegant)] transition-all hover:scale-[1.02] hover:shadow-[0_24px_60px_-20px_oklch(0.42_0.045_150/0.4)] ${
+        large ? "px-8 py-4 text-base" : "px-6 py-3 text-sm"
+      }`}
       style={{ background: "var(--gradient-sage)" }}
     >
       <WhatsAppIcon className="h-5 w-5" />
@@ -116,16 +99,26 @@ function Landing() {
 
       {/* Nav */}
       <header className="absolute inset-x-0 top-0 z-20">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
           <a href="#top" className="font-serif text-lg text-foreground sm:text-xl">
             CEMIP - Clínica Pacaembu
           </a>
           <nav className="hidden gap-8 text-sm text-muted-foreground md:flex">
-            <a href="#sobre" className="hover:text-foreground">Sobre</a>
-            <a href="#servicos" className="hover:text-foreground">Serviços</a>
-            <a href="#tour" className="hover:text-foreground">Tour</a>
-            <a href="#diferenciais" className="hover:text-foreground">Diferenciais</a>
-            <a href="#contato" className="hover:text-foreground">Contato</a>
+            <a href="#sobre" className="hover:text-foreground">
+              Sobre
+            </a>
+            <a href="#servicos" className="hover:text-foreground">
+              Serviços
+            </a>
+            <a href="#tour" className="hover:text-foreground">
+              Tour
+            </a>
+            <a href="#diferenciais" className="hover:text-foreground">
+              Diferenciais
+            </a>
+            <a href="#contato" className="hover:text-foreground">
+              Contato
+            </a>
           </nav>
           <a
             href={WHATSAPP_URL}
@@ -140,24 +133,53 @@ function Landing() {
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative overflow-hidden pb-16 pt-32 sm:pt-40 lg:pb-24 lg:pt-44">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Column (Text Content) */}
-            <div className="lg:col-span-7 text-left">
+      <section id="top" className="relative overflow-hidden pb-16 pt-28 sm:pt-36 lg:pb-24 lg:pt-40">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Column (Text Content & Value Proposition) */}
+            <div className="lg:col-span-5 text-left">
               <Reveal>
-                <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--sage)]/30 bg-[var(--sage-soft)]/50 px-3 py-1 text-xs font-medium tracking-wide text-[var(--sage-dark)] uppercase">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--sage)]" />
+                <div className="inline-flex items-center gap-2 rounded-full border border-[var(--sage)]/30 bg-[var(--sage-soft)]/60 px-3.5 py-1 text-xs font-medium tracking-wide text-[var(--sage-dark)] uppercase mb-5">
+                  <span className="h-2 w-2 rounded-full bg-[var(--sage)] animate-pulse" />
                   50 anos de tradição no Pacaembu
-                </p>
-                <h1 className="font-serif text-4xl leading-[1.1] text-foreground sm:text-5xl lg:text-6xl">
+                </div>
+                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl leading-[1.15] text-foreground">
                   Coworking para profissionais da saúde no Pacaembu
                 </h1>
-                <p className="mt-6 text-base text-muted-foreground sm:text-lg max-w-xl">
-                  Estrutura completa em clínica com 50 anos de tradição. Espaço
-                  profissional pronto para atender, sem os custos de manter um
-                  consultório próprio.
+                <p className="mt-5 text-base text-muted-foreground sm:text-lg leading-relaxed">
+                  Estrutura completa em clínica consolidada. Consultórios modernos prontos para
+                  atender, com recepção, agendamento e estacionamento — sem os custos e burocracias
+                  de manter um espaço próprio.
                 </p>
+
+                {/* Quick Trust Highlights */}
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-foreground/85">
+                  <div className="flex items-center gap-2">
+                    <span className="grid h-5 w-5 place-items-center rounded-full bg-[var(--sage-soft)] text-[var(--sage-dark)] font-bold text-[10px]">
+                      ✓
+                    </span>
+                    <span>Períodos de 4h (manhã/tarde)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="grid h-5 w-5 place-items-center rounded-full bg-[var(--sage-soft)] text-[var(--sage-dark)] font-bold text-[10px]">
+                      ✓
+                    </span>
+                    <span>Sem fiador ou reforma</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="grid h-5 w-5 place-items-center rounded-full bg-[var(--sage-soft)] text-[var(--sage-dark)] font-bold text-[10px]">
+                      ✓
+                    </span>
+                    <span>Recepção e secretária inclusas</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="grid h-5 w-5 place-items-center rounded-full bg-[var(--sage-soft)] text-[var(--sage-dark)] font-bold text-[10px]">
+                      ✓
+                    </span>
+                    <span>Estacionamento com manobrista</span>
+                  </div>
+                </div>
+
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <CTAButton large>Agendar uma Visita</CTAButton>
                   <a
@@ -170,19 +192,10 @@ function Landing() {
               </Reveal>
             </div>
 
-            {/* Right Column (Image) */}
-            <div className="lg:col-span-5 relative w-full">
-              <Reveal delay={200}>
-                <div className="relative overflow-hidden rounded-3xl border border-border shadow-[var(--shadow-elegant)] bg-muted aspect-4/3 lg:aspect-[5/6]">
-                  <img
-                    src={cemipFachada}
-                    alt="CEMIP - Clínica Pacaembu"
-                    className="absolute inset-0 w-full h-full object-cover object-center"
-                    loading="eager"
-                  />
-                  {/* Subtle premium gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-transparent pointer-events-none" />
-                </div>
+            {/* Right Column (Hero Carousel occupying 7 cols / 58% width) */}
+            <div className="lg:col-span-7 relative w-full">
+              <Reveal delay={150}>
+                <HeroCarousel />
               </Reveal>
             </div>
           </div>
@@ -192,7 +205,6 @@ function Landing() {
       {/* Sobre */}
       <section id="sobre" className="border-t border-border/60 py-20 sm:py-28">
         <div className="mx-auto max-w-3xl px-6 text-center">
-
           <Reveal delay={120}>
             <p className="text-xs font-semibold uppercase tracking-widest text-[var(--sage-dark)]">
               Sobre a clínica
@@ -201,12 +213,10 @@ function Landing() {
               Tradição e Excelência
             </h2>
             <p className="mt-6 text-muted-foreground sm:text-lg">
-              A Clínica e Cirurgia do Aparelho Digestivo é uma empresa em
-              atividade no mesmo endereço há 50 anos, na região do Pacaembu.
-              Projetada em uma das clássicas casas da região, oferecemos um
-              ambiente acolhedor, com infraestrutura modernizada para
-              proporcionar a melhor experiência tanto para o profissional
-              quanto para o paciente.
+              A Clínica e Cirurgia do Aparelho Digestivo é uma empresa em atividade no mesmo
+              endereço há 50 anos, na região do Pacaembu. Projetada em uma das clássicas casas da
+              região, oferecemos um ambiente acolhedor, com infraestrutura modernizada para
+              proporcionar a melhor experiência tanto para o profissional quanto para o paciente.
             </p>
             <ul className="mt-8 space-y-4">
               {[
@@ -240,8 +250,8 @@ function Landing() {
                 Tudo pronto para o seu atendimento
               </h2>
               <p className="mt-5 text-muted-foreground">
-                Uma estrutura pensada para você focar apenas no que importa: o
-                cuidado com o seu paciente.
+                Uma estrutura pensada para você focar apenas no que importa: o cuidado com o seu
+                paciente.
               </p>
             </div>
           </Reveal>
@@ -256,12 +266,8 @@ function Landing() {
                   >
                     <s.icon className="h-6 w-6 text-[var(--sage-dark)]" strokeWidth={1.5} />
                   </div>
-                  <h3 className="mt-6 font-serif text-xl text-foreground">
-                    {s.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {s.desc}
-                  </p>
+                  <h3 className="mt-6 font-serif text-xl text-foreground">{s.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -312,8 +318,8 @@ function Landing() {
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Reveal>
             <h2 className="font-serif text-3xl text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-tight">
-              Atenda em um espaço profissional, sem os custos e preocupações
-              de manter um consultório próprio.
+              Atenda em um espaço profissional, sem os custos e preocupações de manter um
+              consultório próprio.
             </h2>
             <p className="mt-6 text-muted-foreground sm:text-lg">
               Será um grande prazer recebê-lo para uma visita.

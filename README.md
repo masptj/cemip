@@ -1,6 +1,6 @@
 # Pacaembu Health Hub
 
-Crie uma landing page (one-page) completa, moderna e responsiva para um serviço de "Coworking para Profissionais da Saúde". O design deve transmitir confiança, tradição, higiene e acolhimento. 
+Crie uma landing page (one-page) completa, moderna e responsiva para um serviço de "Coworking para Profissionais da Saúde". O design deve transmitir confiança, tradição, higiene e acolhimento.
 
 **Estilo Visual e Tema:**
 
@@ -112,4 +112,5 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
 # cemip
