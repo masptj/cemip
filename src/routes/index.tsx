@@ -3,6 +3,7 @@ import { DoorOpen, Clock, Users, Car, Check, MapPin, MessageCircle } from "lucid
 import { Reveal } from "@/components/Reveal";
 import { VideoTour } from "@/components/VideoTour";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { HeroVideo } from "@/components/HeroVideo";
 import cemipFachada from "@/assets/cemip-fachada.png";
 
 export const Route = createFileRoute("/")({
@@ -107,6 +108,9 @@ function Landing() {
             <a href="#sobre" className="hover:text-foreground">
               Sobre
             </a>
+            <a href="#consultorios" className="hover:text-foreground">
+              Consultórios
+            </a>
             <a href="#servicos" className="hover:text-foreground">
               Serviços
             </a>
@@ -133,27 +137,41 @@ function Landing() {
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative overflow-hidden pb-16 pt-28 sm:pt-36 lg:pb-24 lg:pt-40">
+      <section id="top" className="relative overflow-hidden pb-16 pt-24 sm:pt-36 lg:pb-24 lg:pt-40">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Column (Text Content & Value Proposition) */}
-            <div className="lg:col-span-5 text-left">
+          {/* Primeira Dobra: Chamada Principal e Vídeo de Apresentação */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
+            {/* Header / Headline Area (Col 1-7 on desktop, 1st on mobile) */}
+            <div className="lg:col-span-7 text-left">
               <Reveal>
-                <div className="inline-flex items-center gap-2 rounded-full border border-[var(--sage)]/30 bg-[var(--sage-soft)]/60 px-3.5 py-1 text-xs font-medium tracking-wide text-[var(--sage-dark)] uppercase mb-5">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[var(--sage)]/30 bg-[var(--sage-soft)]/60 px-3.5 py-1 text-xs font-medium tracking-wide text-[var(--sage-dark)] uppercase mb-3 sm:mb-5">
                   <span className="h-2 w-2 rounded-full bg-[var(--sage)] animate-pulse" />
                   50 anos de tradição no Pacaembu
                 </div>
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl leading-[1.15] text-foreground">
+                <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl leading-[1.2] sm:leading-[1.15] text-foreground">
                   Coworking para profissionais da saúde no Pacaembu
                 </h1>
-                <p className="mt-5 text-base text-muted-foreground sm:text-lg leading-relaxed">
+              </Reveal>
+            </div>
+
+            {/* Video Column (2nd on mobile directly in the 1st fold, Right column row-span-2 on desktop) */}
+            <div className="lg:col-span-5 lg:row-span-2 flex justify-center lg:justify-end relative w-full my-2 lg:my-0">
+              <Reveal delay={150}>
+                <HeroVideo />
+              </Reveal>
+            </div>
+
+            {/* Body Copy, Highlights & CTAs (Col 1-7 on desktop, 3rd on mobile right below video) */}
+            <div className="lg:col-span-7 text-left">
+              <Reveal delay={100}>
+                <p className="text-base text-muted-foreground sm:text-lg leading-relaxed">
                   Estrutura completa em clínica consolidada. Consultórios modernos prontos para
                   atender, com recepção, agendamento e estacionamento — sem os custos e burocracias
                   de manter um espaço próprio.
                 </p>
 
                 {/* Quick Trust Highlights */}
-                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-foreground/85">
+                <div className="mt-5 sm:mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-foreground/85">
                   <div className="flex items-center gap-2">
                     <span className="grid h-5 w-5 place-items-center rounded-full bg-[var(--sage-soft)] text-[var(--sage-dark)] font-bold text-[10px]">
                       ✓
@@ -180,24 +198,40 @@ function Landing() {
                   </div>
                 </div>
 
-                <div className="mt-8 flex flex-wrap items-center gap-4">
+                <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-4">
                   <CTAButton large>Agendar uma Visita</CTAButton>
                   <a
-                    href="#servicos"
+                    href="#consultorios"
                     className="text-sm font-medium text-foreground underline-offset-4 hover:underline"
                   >
-                    Conhecer o espaço →
+                    Ver fotos dos consultórios ↓
                   </a>
                 </div>
               </Reveal>
             </div>
+          </div>
 
-            {/* Right Column (Hero Carousel occupying 7 cols / 58% width) */}
-            <div className="lg:col-span-7 relative w-full">
-              <Reveal delay={150}>
+          {/* Segunda Dobra da Hero: Carrossel de Fotos dos Consultórios */}
+          <div id="consultorios" className="mt-20 sm:mt-28 pt-16 border-t border-border/60">
+            <Reveal>
+              <div className="mx-auto max-w-3xl text-center mb-10">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[var(--sage)]/30 bg-[var(--sage-soft)]/60 px-3.5 py-1 text-xs font-medium tracking-wide text-[var(--sage-dark)] uppercase mb-3">
+                  Galeria de Fotos
+                </div>
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-foreground">
+                  Conheça Nossos Consultórios
+                </h2>
+                <p className="mt-3 text-muted-foreground sm:text-lg">
+                  Salas privativas totalmente mobiliadas, climatizadas e com estrutura pronta para atendimento imediato.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <div className="mx-auto max-w-5xl">
                 <HeroCarousel />
-              </Reveal>
-            </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
