@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { DoorOpen, Clock, Users, Car, Check, MapPin, MessageCircle } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { VideoTour } from "@/components/VideoTour";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { HeroVideo } from "@/components/HeroVideo";
+import { WhatsAppLeadModal } from "@/components/WhatsAppLeadModal";
 import cemipFachada from "@/assets/cemip-fachada.png";
 
 export const Route = createFileRoute("/")({
@@ -29,7 +31,7 @@ export const Route = createFileRoute("/")({
 });
 
 const WHATSAPP_URL =
-  "https://wa.me/5511917726297?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20visita%20ao%20coworking.";
+  "https://wa.me/5511917726297";
 
 function WhatsAppIcon({ className = "" }: { className?: string }) {
   return (
@@ -39,24 +41,37 @@ function WhatsAppIcon({ className = "" }: { className?: string }) {
   );
 }
 
-function CTAButton({ children, large = false }: { children: React.ReactNode; large?: boolean }) {
+function CTAButton({
+  children,
+  large = false,
+  onClick,
+}: {
+  children: React.ReactNode;
+  large?: boolean;
+  onClick?: () => void;
+}) {
   return (
-    <a
-      href={WHATSAPP_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-2.5 rounded-full font-medium text-white shadow-[var(--shadow-elegant)] transition-all hover:scale-[1.02] hover:shadow-[0_24px_60px_-20px_oklch(0.42_0.045_150/0.4)] ${
-        large ? "px-8 py-4 text-base" : "px-6 py-3 text-sm"
-      }`}
+    <button
+      type="button"
+      onClick={onClick}
+      className={`inline-flex items-center justify-center gap-2.5 rounded-full font-medium text-white shadow-[var(--shadow-elegant)] transition-all hover:scale-[1.02] hover:shadow-[0_24px_60px_-20px_oklch(0.42_0.045_150/0.4)] cursor-pointer ${large ? "px-8 py-4 text-base" : "px-6 py-3 text-sm"
+        }`}
       style={{ background: "var(--gradient-sage)" }}
     >
       <WhatsAppIcon className="h-5 w-5" />
       {children}
-    </a>
+    </button>
   );
 }
 
 function Landing() {
+  const [leadModalOpen, setLeadModalOpen] = useState(false);
+  const [leadSource, setLeadSource] = useState("WhatsApp");
+
+  const handleOpenLeadModal = (source: string) => {
+    setLeadSource(source);
+    setLeadModalOpen(true);
+  };
   const services = [
     {
       icon: DoorOpen,
@@ -124,15 +139,14 @@ function Landing() {
               Contato
             </a>
           </nav>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-2 text-sm text-foreground backdrop-blur transition-colors hover:border-[var(--sage)] sm:inline-flex"
+          <button
+            type="button"
+            onClick={() => handleOpenLeadModal("Header")}
+            className="hidden items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-2 text-sm text-foreground backdrop-blur transition-colors hover:border-[var(--sage)] sm:inline-flex cursor-pointer"
           >
             <WhatsAppIcon className="h-4 w-4 text-[var(--whatsapp)]" />
             (11) 91772-6297
-          </a>
+          </button>
         </div>
       </header>
 
@@ -199,7 +213,12 @@ function Landing() {
                 </div>
 
                 <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-4">
-                  <CTAButton large>Agendar uma Visita</CTAButton>
+                  <CTAButton
+                    large
+                    onClick={() => handleOpenLeadModal("Hero CTA - Agendar uma Visita")}
+                  >
+                    Agendar uma Visita
+                  </CTAButton>
                   <a
                     href="#consultorios"
                     className="text-sm font-medium text-foreground underline-offset-4 hover:underline"
@@ -222,7 +241,8 @@ function Landing() {
                   Conheça Nossos Consultórios
                 </h2>
                 <p className="mt-3 text-muted-foreground sm:text-lg">
-                  Salas privativas totalmente mobiliadas, climatizadas e com estrutura pronta para atendimento imediato.
+                  Salas privativas totalmente mobiliadas, climatizadas e com estrutura pronta para
+                  atendimento imediato.
                 </p>
               </div>
             </Reveal>
@@ -359,7 +379,12 @@ function Landing() {
               Será um grande prazer recebê-lo para uma visita.
             </p>
             <div className="mt-10 flex justify-center">
-              <CTAButton large>Falar com a equipe</CTAButton>
+              <CTAButton
+                large
+                onClick={() => handleOpenLeadModal("CTA Secundário - Falar com a equipe")}
+              >
+                Falar com a equipe
+              </CTAButton>
             </div>
           </Reveal>
         </div>
@@ -397,14 +422,13 @@ function Landing() {
                     <p className="text-xs uppercase tracking-wider text-muted-foreground">
                       WhatsApp
                     </p>
-                    <a
-                      href={WHATSAPP_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-1 block text-lg text-foreground hover:text-[var(--sage-dark)]"
+                    <button
+                      type="button"
+                      onClick={() => handleOpenLeadModal("Footer - Telefone")}
+                      className="mt-1 block text-lg text-foreground hover:text-[var(--sage-dark)] cursor-pointer text-left"
                     >
                       (11) 91772-6297
-                    </a>
+                    </button>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
@@ -431,7 +455,11 @@ function Landing() {
               </ul>
 
               <div className="mt-10">
-                <CTAButton>Agendar pelo WhatsApp</CTAButton>
+                <CTAButton
+                  onClick={() => handleOpenLeadModal("Footer CTA - Agendar pelo WhatsApp")}
+                >
+                  Agendar pelo WhatsApp
+                </CTAButton>
               </div>
             </Reveal>
 
@@ -454,6 +482,14 @@ function Landing() {
           </div>
         </div>
       </footer>
+
+      {/* Modal de Coleta de Leads antes do WhatsApp */}
+      <WhatsAppLeadModal
+        open={leadModalOpen}
+        onOpenChange={setLeadModalOpen}
+        source={leadSource}
+        defaultWhatsappUrl={WHATSAPP_URL}
+      />
     </div>
   );
 }
